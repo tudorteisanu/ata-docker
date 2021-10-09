@@ -1,3 +1,8 @@
 FROM nginx:1.20-alpine
-COPY dist /var/www/html/front/dist
-COPY front.conf /etc/nginx/conf.d/default.conf
+
+WORKDIR /var/www/front
+
+RUN mkdir -p /var/www/front/dist
+COPY dist /var/www/front/dist
+
+COPY front.conf /etc/nginx/conf.d/front.conf
