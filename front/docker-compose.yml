@@ -4,8 +4,7 @@ services:
   client:
     image: ghcr.io/powerit-dev/ata-client:master
     container_name: client
-
     environment:
-      - VIRTUAL_HOST=client.power.loc
-    ports:
-      - 80:80
+      VIRTUAL_HOST: client.power.loc
+    restart: always
+    network_mode: bridge
